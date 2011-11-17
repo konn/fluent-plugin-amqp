@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Hiromi Ishii"]
   s.date = %q{2011-11-17}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{AMQP input/output plugin for fluentd}
   s.email = %q{konn.jinro@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
     "lib/fluent/plugin/out_amqp.rb"
   ]
   s.homepage = %q{http://github.com/konn/fluent-plugin-amqp}
-  s.licenses = ["MIT"]
+  s.licenses = ["Apache License, Version 2.0"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{AMQP input/output plugin or fluentd}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
