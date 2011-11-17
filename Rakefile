@@ -16,12 +16,12 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "fluent-plugin-amqp"
   gem.homepage = "http://github.com/konn/fluent-plugin-amqp"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.license = "Apache License, Version 2.0"
+  gem.summary = %Q{AMQP input/output plugin or fluentd}
+  gem.description = %Q{AMQP input/output plugin for fluentd}
   gem.email = "konn.jinro@gmail.com"
   gem.authors = ["Hiromi Ishii"]
-  # dependencies defined in Gemfile
+  gem.files = ["lib/fluent/plugin/in_amqp.rb", "lib/fluent/plugin/out_amqp.rb"]
 end
 Jeweler::RubygemsDotOrgTasks.new
 
