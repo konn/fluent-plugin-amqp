@@ -16,9 +16,12 @@ module Fluent
     config_param :exclusive, :bool, :default => false
     config_param :auto_delete, :bool, :default => false
     config_param :passive, :bool, :default => false
+    config_param :payload_format, :string, :default => "json"
 
     def initialize
       require 'bunny'
+      require "json" if @payload_format == "json"
+      
       super
     end
 
@@ -49,10 +52,27 @@ module Fluent
       q = @bunny.queue(@queue, :passive => @passive, :durable => @durable,
                        :exclusive => @exclusive, :auto_delete => @auto_delete)
       q.subscribe do |msg|
-        Engine.emit(@tag, Time.new.to_i, msg[:payload])
+        payload = parse_payload(msg)
+        Engine.emit(@tag, Time.new.to_i, payload)
       end
     end # AMQPInput#run
 
+    private
+    def parse_payload(msg)
+      ret = { payload: msg[:payload] }
+      
+      begin
+        case @payload_format
+        when "json"
+          ret = JSON.parse(msg[:payload])
+        end
+      rescue => e
+        # should raises a error to ovserver?
+        $log.error "parse payload error: #{e}, payload: #{msg[:payload]}"
+      end
+
+      ret
+    end
   end # class AMQPInput
 
 end # module Fluent
