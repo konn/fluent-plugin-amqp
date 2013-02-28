@@ -8,6 +8,7 @@ module Fluent
     config_param :vhost, :string, :default => "/"
     config_param :port, :integer, :default => 5672
     config_param :ssl, :bool, :default => false
+    config_param :verify_ssl, :bool, :default => false
     config_param :exchange, :string, :default => ""
     config_param :exchange_type, :string, :default => "direct"
     config_param :passive, :bool, :default => false
@@ -28,7 +29,7 @@ module Fluent
         raise ConfigError, "'host', 'exchange' and 'key' must be all specified."
       end
       @bunny = Bunny.new(:host => @host, :port => @port, :vhost => @vhost,
-                         :pass => @pass, :user => @user, :ssl => @ssl)
+                         :pass => @pass, :user => @user, :ssl => @ssl, :verify_ssl => @verify_ssl)
     end
 
     def start
