@@ -15,12 +15,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "fluent-plugin-amqp"
-  gem.homepage = "http://github.com/konn/fluent-plugin-amqp"
+  gem.homepage = "http://github.com/giraffi/fluent-plugin-amqp"
   gem.license = "Apache License, Version 2.0"
   gem.summary = %Q{AMQP input/output plugin or fluentd}
   gem.description = %Q{AMQP input/output plugin for fluentd}
-  gem.email = "konn.jinro@gmail.com"
-  gem.authors = ["Hiromi Ishii"]
+  gem.email = "sawanoboriyu@higanworks.com"
+  gem.authors = ["Hiromi Ishii", "Team Giraffi", "HiganWorks LLC"]
   gem.files = ["lib/fluent/plugin/in_amqp.rb", "lib/fluent/plugin/out_amqp.rb"]
 end
 Jeweler::RubygemsDotOrgTasks.new
